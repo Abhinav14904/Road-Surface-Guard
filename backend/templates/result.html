@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fdfdfd;
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            max-width: 600px;
+            border: 3px solid #007BFF;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .nav-links {
+            margin-top: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #007BFF;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧠 Detection Result</h1>
+
+    <img src="{{ url_for('static', filename=image_path) }}" alt="Detected Image">
+
+    {% if detections %}
+        <h2>Detected Objects:</h2>
+        <ul>
+            {% for item in detections %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No potholes detected.</p>
+    {% endif %}
+
+    <div class="nav-links">
+        <a href="/">⬅️ Upload Another</a>
+        <a href="/history">📋 View History</a>
+    </div>
+</body>
+</html>

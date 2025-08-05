@@ -1,0 +1,7 @@
+Requiremnts:
+
+flask
+ultralytics
+opencv-python
+pyngrok
+mysql-connector-python
